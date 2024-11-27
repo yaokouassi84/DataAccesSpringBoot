@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+    <script>
+        // Fonction pour afficher l'heure en temps réel
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById("realTimeClock").textContent = timeString;
+        }
+
+        // Met à jour l'heure chaque seconde
+        setInterval(updateClock, 1000);
+
+        // Initialise l'heure immédiatement après le chargement de la page
+        window.onload = updateClock;
+    </script>
+</head>
+<body>
+    <h1>Bienvenue à l'application Spring Boot avec l'heure en temps réel !</h1>
+    <p>L'heure actuelle est : <span id="realTimeClock"></span></p>
+</body>
+</html>
